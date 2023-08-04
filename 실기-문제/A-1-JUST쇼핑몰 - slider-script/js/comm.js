@@ -42,18 +42,41 @@ $(function () {
 
   // slide
   let now = 1;
+  const slideEls = $(".lst-slide");
+  let height = 100;
 
   // 3초 마다 실행
   setInterval(function () {
     slide();
   }, 3000);
 
+  // 슬라이드 기능 만들기
   function slide() {
     console.log("ss");
-    // .lst-slide를 애니메이션(top:-300px)
-    // 3초 후에 -100% 6초 후에 -200%
-    $(".lst-slide").animate({
-      top: 100 * now * -1 + "%",
-    });
+
+    // 조건문
+    // now : 0 - 첫 번째 슬라이드
+    // now : 1 - 두 번째 슬라이드
+    // now : 2 - 세 번째 슬라이드
+    // 참 :  만약 1, 2번째 슬라이드일 경우
+    // 그 밖에 (거짓) : 3번 슬라이드일 경우
+    if (now < 3) {
+      // 참
+      // 다음 슬라이드로 이동
+      // .lst-slide를 애니메이션(top:-300px)
+      // 3초 후에 -100% 6초 후에 -200%
+      slideEls.animate({
+        top: height * now * -1 + "%",
+      });
+      // 변수 재선언
+      now = now + 1;
+    } else {
+      // 거짓
+      // 첫 번째 슬라이드로 이동
+      slideEls.animate({
+        top: 0,
+      });
+      now = 1;
+    }
   }
 });

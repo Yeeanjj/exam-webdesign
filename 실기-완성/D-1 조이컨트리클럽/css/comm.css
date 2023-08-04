@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+/* reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  line-height: 1.5;
+  color: #333;
+}
+
+.inner {
+  display: flex;
+}
+header {
+  width: 200px;
+  background: lightgray;
+  /* background: lightcoral; */
+}
+.logo a {
+  display: block;
+  /* text-align: center; */
+  /* img 태그가 inline 일 경우 */
+}
+.logo img {
+  display: block;
+  margin: auto;
+}
+#gnb .depth1 {
+  padding: 0 25px;
+}
+
+#gnb .depth1 > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #000;
+}
+#gnb .depth1 > li > a::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-60%);
+}
+#gnb .depth1 > li > a:hover {
+  background: rgba(255, 255, 0, 0.5);
+  color: #f638c7;
+  font-weight: 900;
+}
+#gnb .depth2 > li > a {
+  display: block;
+  padding: 5px 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+#gnb .depth2 > li > a:hover {
+  color: #f638c7;
+  font-weight: 900;
+}
+main {
+  flex-grow: 1;
+  /* width: calc(100% - 200px); */
+}
+footer {
+  height: 100px;
+  background: lightpink;
+}
